@@ -1,18 +1,31 @@
 project(demos)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-IF(APPLE)
-   include_directories (/System/Library/Frameworks)
-   find_library(COCOA_LIBRARY Cocoa)
-   find_library(GLUT_LIBRARY GLUT )
-   find_library(OpenGL_LIBRARY OpenGL )
-   mark_as_advanced (COCOA_LIBRARY
-                     GLUT_LIBRARY
-                     OpenGL_LIBRARY)
-   set(EXTRA_LIBS ${COCOA_LIBRARY} ${GLUT_LIBRARY} ${OpenGL_LIBRARY})
-ENDIF (APPLE)
 
+#########################################################
+# FIND GLUT
+#########################################################
+find_package(GLUT REQUIRED)
+include_directories(${GLUT_INCLUDE_DIRS})
+link_directories(${GLUT_LIBRARY_DIRS})
+add_definitions(${GLUT_DEFINITIONS})
+if(NOT GLUT_FOUND)
+    message(ERROR " GLUT not found!")
+endif(NOT GLUT_FOUND)
+
+#########################################################
+# FIND OPENGL
+#########################################################
+find_package(OpenGL REQUIRED)
+include_directories(${OpenGL_INCLUDE_DIRS})
+link_directories(${OpenGL_LIBRARY_DIRS})
+add_definitions(${OpenGL_DEFINITIONS})
+if(NOT OPENGL_FOUND)
+    message(ERROR " OPENGL not found!")
+endif(NOT OPENGL_FOUND)
+
+set(EXTRA_LIBS ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})
 
 include_directories(SYSTEM ../../include/)
+
 add_library(demo app.cpp main.cpp timing.cpp)
 
 add_subdirectory(ballistic)
