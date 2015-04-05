@@ -1,5 +1,5 @@
 project(blob)
-include_directories(SYSTEM ../../../include/)
-add_executable(blob blob.cpp ../app.cpp ../main.cpp ../timing.cpp)
+add_executable(blob blob.cpp)
 target_link_libraries(blob cyclone)
+target_link_libraries(blob demo)
 target_link_libraries(blob ${EXTRA_LIBS})

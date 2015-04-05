@@ -1,5 +1,5 @@
 project(flightsim)
-include_directories(SYSTEM ../../../include/)
-add_executable(flightsim flightsim.cpp ../app.cpp ../main.cpp ../timing.cpp)
+add_executable(flightsim flightsim.cpp)
 target_link_libraries(flightsim cyclone)
+target_link_libraries(flightsim demo)
 target_link_libraries(flightsim ${EXTRA_LIBS})

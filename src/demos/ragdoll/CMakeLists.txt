@@ -1,5 +1,5 @@
 project(ragdoll)
-include_directories(SYSTEM ../../../include/)
-add_executable(ragdoll ragdoll.cpp ../app.cpp ../main.cpp ../timing.cpp)
+add_executable(ragdoll ragdoll.cpp)
 target_link_libraries(ragdoll cyclone)
+target_link_libraries(ragdoll demo)
 target_link_libraries(ragdoll ${EXTRA_LIBS})

@@ -1,5 +1,5 @@
 project(fireworks)
-include_directories(SYSTEM ../../../include/)
-add_executable(fireworks fireworks.cpp ../app.cpp ../main.cpp ../timing.cpp)
+add_executable(fireworks fireworks.cpp)
 target_link_libraries(fireworks cyclone)
+target_link_libraries(fireworks demo)
 target_link_libraries(fireworks ${EXTRA_LIBS})

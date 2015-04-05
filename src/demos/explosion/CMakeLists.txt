@@ -1,5 +1,5 @@
 project(explosion)
-include_directories(SYSTEM ../../../include/)
 add_executable(explosion explosion.cpp ../app.cpp ../main.cpp ../timing.cpp)
 target_link_libraries(explosion cyclone)
+target_link_libraries(explosion demo)
 target_link_libraries(explosion ${EXTRA_LIBS})

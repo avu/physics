@@ -1,5 +1,5 @@
 project(bigballistic)
-include_directories(SYSTEM ../../../include/)
-add_executable(bigballistic bigballistic.cpp ../app.cpp ../main.cpp ../timing.cpp)
+add_executable(bigballistic bigballistic.cpp)
 target_link_libraries(bigballistic cyclone)
+target_link_libraries(bigballistic demo)
 target_link_libraries(bigballistic ${EXTRA_LIBS})

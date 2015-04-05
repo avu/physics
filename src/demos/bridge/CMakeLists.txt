@@ -1,5 +1,5 @@
 project(bridge)
-include_directories(SYSTEM ../../../include/)
-add_executable(bridge bridge.cpp ../app.cpp ../main.cpp ../timing.cpp)
+add_executable(bridge bridge.cpp)
 target_link_libraries(bridge cyclone)
+target_link_libraries(bridge demo)
 target_link_libraries(bridge ${EXTRA_LIBS})

@@ -1,5 +1,5 @@
 project(platform)
-include_directories(SYSTEM ../../../include/)
-add_executable(platform platform.cpp ../app.cpp ../main.cpp ../timing.cpp)
+add_executable(platform platform.cpp)
 target_link_libraries(platform cyclone)
+target_link_libraries(platform demo)
 target_link_libraries(platform ${EXTRA_LIBS})

@@ -1,5 +1,5 @@
 project(fracture)
-include_directories(SYSTEM ../../../include/)
-add_executable(fracture fracture.cpp ../app.cpp ../main.cpp ../timing.cpp)
+add_executable(fracture fracture.cpp)
 target_link_libraries(fracture cyclone)
+target_link_libraries(fracture demo)
 target_link_libraries(fracture ${EXTRA_LIBS})

@@ -1,5 +1,5 @@
 project(demos)
-
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 IF(APPLE)
    INCLUDE_DIRECTORIES ( /System/Library/Frameworks )
    FIND_LIBRARY(COCOA_LIBRARY Cocoa)
@@ -10,6 +10,10 @@ IF(APPLE)
                      OpenGL_LIBRARY)
    SET(EXTRA_LIBS ${COCOA_LIBRARY} ${GLUT_LIBRARY} ${OpenGL_LIBRARY})
 ENDIF (APPLE)
+
+
+include_directories(SYSTEM ../../include/)
+add_library(demo app.cpp main.cpp timing.cpp)
 
 add_subdirectory(ballistic)
 add_subdirectory(bigballistic)
