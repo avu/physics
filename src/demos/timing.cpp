@@ -69,9 +69,9 @@ unsigned TimingData::getTime()
 #if TIMING_WINDOWS
 unsigned long systemClock()
 {
-    __asm {
-    	rdtsc;
-    }
+    __asm (
+    	"rdtsc;"
+    );
 }
 #endif
 
