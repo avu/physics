@@ -31,6 +31,7 @@ target_link_libraries(demo cyclone)
 
 if (MINGW)
 target_link_libraries(demo winmm)
+add_dependencies(demo copy_glut)
 endif()
 
 add_subdirectory(ballistic)
