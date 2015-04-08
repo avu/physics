@@ -1,5 +1,8 @@
 project(demos)
 
+if (MINGW)
+set(GLUT_ROOT_PATH lib/win32/glut)
+endif()
 #########################################################
 # FIND GLUT
 #########################################################
@@ -31,8 +34,17 @@ target_link_libraries(demo cyclone)
 
 if (MINGW)
 target_link_libraries(demo winmm)
-add_dependencies(demo copy_glut)
 endif()
+
+add_custom_target(copy_glut)
+
+add_custom_command(
+     TARGET copy_glut PRE_BUILD
+#     OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/freeglut.dll
+     COMMAND ${CMAKE_COMMAND}
+     -E copy ${CMAKE_SOURCE_DIR}/lib/win32/glut/bin/freeglut.dll
+     ${CMAKE_CURRENT_BINARY_DIR}/freeglut.dll
+   )
 
 add_subdirectory(ballistic)
 add_subdirectory(bigballistic)
