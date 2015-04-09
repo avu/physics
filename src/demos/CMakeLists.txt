@@ -1,7 +1,7 @@
 project(demos)
 
 if (MINGW)
-set(GLUT_ROOT_PATH lib/win32/glut)
+set(GLUT_ROOT_PATH ${CMAKE_SOURCE_DIR}/lib/win32/glut)
 endif()
 #########################################################
 # FIND GLUT
