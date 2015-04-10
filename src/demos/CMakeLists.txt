@@ -29,7 +29,14 @@ set(EXTRA_LIBS ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})
 
 include_directories(SYSTEM ../../include/)
 
-add_library(demo app.cpp main.cpp timing.cpp)
+add_library(
+demo
+app.cpp
+ogl_headers.h
+main.cpp
+timing.cpp
+)
+
 target_link_libraries(demo cyclone)
 
 
